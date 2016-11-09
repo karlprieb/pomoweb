@@ -68,6 +68,11 @@ export default {
   background: rgba(255, 255, 255, .2);
   width: 80px;
   height: 80px;
+  cursor: pointer;
+  outline: none;
+}
+.button:hover {
+  background: rgba(255, 255, 255, .7);
 }
 .button span {
   text-transform: uppercase;
