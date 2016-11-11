@@ -1,5 +1,6 @@
 {
 	"name": "PomoWeb",
+  "short_name": "PomoWeb",
 	"icons": [
 		{
 			"src": "\/static\/android-chrome-192x192.png",

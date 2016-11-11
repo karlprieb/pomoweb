@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <header>
+    <header class="header">
       <logo></logo>
-      <h1>PomoWeb</h1>
+      <h1 class="title">PomoWeb</h1>
     </header>
     <main>
       <counter></counter>
@@ -25,27 +25,36 @@ export default {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100,300');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:100|Source+Code+Pro:200');
+
 #app {
   font-family: 'Josefin Sans', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+
+  background: rgb(241,255,226);
+  background: linear-gradient(to bottom,  rgba(241,255,226,1) 0%,rgba(255,173,182,1) 100%);
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex;
   align-items: center;
-  background: rgb(241,255,226); /* Old browsers */
-  background: linear-gradient(to bottom,  rgba(241,255,226,1) 0%,rgba(255,173,182,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  flex-direction: column;
-  width: 100vw;
-  height: 100vh;
 }
-h1 {
-  font-weight: 100;
-  color: rgba(0,0,0,0.5);
-  margin: 30px 0 0;
-  font-size: 3rem;
-}
-header {
+
+.header {
   margin-top: 20px;
+
   text-align: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 100;
+
+  margin: 30px 0 0;
+
+  color: rgba(0,0,0,.5);
 }
 </style>
