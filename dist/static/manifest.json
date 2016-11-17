@@ -1,5 +1,6 @@
 {
 	"name": "PomoWeb",
+  "short_name": "PomoWeb",
 	"icons": [
 		{
 			"src": "\/static\/android-chrome-192x192.png",
@@ -13,6 +14,7 @@
 		}
 	],
 	"theme_color": "#f1ffe2",
+  "start_url": "./?utm_source=web_app_manifest",
 	"display": "standalone",
 	"orientation": "portrait"
 }
