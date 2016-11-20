@@ -28,7 +28,7 @@ export default {
 
 <style>
 .header {
-  margin-top: 20px;
+  margin-top: 5vh;
 
   text-align: center;
 }
@@ -37,7 +37,7 @@ export default {
   font-size: 3rem;
   font-weight: 100;
 
-  margin: 30px 0 0;
+  margin: 2vh 0 0;
 
   color: rgba(0,0,0,.5);
 }

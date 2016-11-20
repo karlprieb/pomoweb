@@ -9,8 +9,11 @@
     <button v-if="!running" class="start button" @click="start(pomoTimer)">
       <span>Start</span>
     </button>
-    <button v-if="running" class="start button" @click="stop()">
+    <button v-else class="start button" @click="stop()">
       <span>Stop</span>
+    </button>
+    <button class="start button" @click="reset()">
+      <span>Reset</span>
     </button>
   </section>
 </div>
@@ -20,12 +23,13 @@
 export default {
   data () {
     return {
-      running: false,
       pomoTimer: 1500,
       shortTimer: 300,
       longTimer: 600,
       minutes: 0,
-      seconds: 0
+      seconds: 0,
+      running: false,
+      timer: null
     }
   },
   methods: {
@@ -42,30 +46,32 @@ export default {
       this.seconds = counter - this.minutes * 60
       this.padTime()
     },
-    runCounter (counter) {
-      if (this.running) {
+    runCounter () {
+      this.timer = setInterval(() => {
         if (this.minutes != 0 || this.seconds != 0) {
-          setTimeout(() => {
-            console.log('timeout', this.seconds)
-            if (this.seconds == 0) {
-              this.minutes -= 1
-              this.seconds = 59
-              this.padTime()
-            } else {
-              this.seconds -= 1
-              this.padTime()
-            }
-            this.runCounter(counter)
-          }, 1000)
+          if (this.seconds == 0) {
+            this.minutes -= 1
+            this.seconds = 59
+            this.padTime()
+          } else {
+            this.seconds -= 1
+            this.padTime()
+          }
         }
-      }
+      }, 1000)
     },
-    start (counter) {
+    start () {
+      this.runCounter()
       this.running = true
-      this.runCounter(counter)
     },
     stop () {
+      clearInterval(this.timer)
       this.running = false
+    },
+    reset () {
+      clearInterval(this.timer)
+      this.running = false
+      this.setCounter(this.pomoTimer)
     }
   },
   mounted () {
@@ -81,7 +87,7 @@ export default {
 
   display: flex;
 
-  margin: 30px 0;
+  margin: 4vh 0;
 
   color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, .3);
@@ -92,7 +98,7 @@ export default {
 
 .middle {
   position: relative;
-  top: -.6rem;
+  top: -.4rem;
 }
 
 .buttons {
@@ -104,6 +110,8 @@ export default {
 .button {
   width: 80px;
   height: 80px;
+
+  margin: 0 1rem;
 
   cursor: pointer;
 
