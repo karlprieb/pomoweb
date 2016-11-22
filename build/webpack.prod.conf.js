@@ -76,7 +76,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       chunks: ['vendor']
     }),
     new OfflinePlugin({
-      externals: ['static/fonts/*']
+      externals: ['static/fonts/*', 'static/audio/*']
     })
   ]
 })
