@@ -20,6 +20,8 @@
 </template>
 
 <script>
+const audio = new Audio('../../static/audio/arpeggio.mp3')
+
 export default {
   data () {
     return {
@@ -82,6 +84,8 @@ export default {
             this.current = this.longBreak
             this.next = this.pomodoro
           }
+
+          audio.play()
         }
       }, 1000)
     },
