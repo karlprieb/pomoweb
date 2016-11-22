@@ -14,7 +14,7 @@
 		}
 	],
 	"theme_color": "#f1ffe2",
-  "start_url": "./?utm_source=web_app_manifest",
+  "start_url": "/",
 	"display": "standalone",
 	"orientation": "portrait"
 }

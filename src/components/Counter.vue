@@ -6,13 +6,13 @@
     <span class="seconds">{{seconds}}</span>
   </section>
   <section class="buttons">
-    <button v-if="!running" class="start button" @click="start(pomoTimer)">
+    <button v-if="!running" class="start button" @click="start()">
       <span>Start</span>
     </button>
     <button v-else class="start button" @click="stop()">
       <span>Stop</span>
     </button>
-    <button class="start button" @click="reset()">
+    <button v-if="running" class="start button" @click="reset()">
       <span>Reset</span>
     </button>
   </section>
@@ -23,9 +23,12 @@
 export default {
   data () {
     return {
-      pomoTimer: 1500,
-      shortTimer: 300,
-      longTimer: 600,
+      pomodoro: 15,
+      shortBreak: 3,
+      longBreak: 9,
+      pomodoroCounter: 0,
+      current: null,
+      next: null,
       minutes: 0,
       seconds: 0,
       running: false,
@@ -34,10 +37,10 @@ export default {
   },
   methods: {
     padTime () {
-      if (this.minutes < 10) {
+      if (this.minutes.toString().length < 2) {
         this.minutes = `0${this.minutes}`
       }
-      if (this.seconds < 10) {
+      if (this.seconds.toString().length < 2) {
         this.seconds = `0${this.seconds}`
       }
     },
@@ -57,6 +60,28 @@ export default {
             this.seconds -= 1
             this.padTime()
           }
+        } else {
+          if (this.pomodoroCounter < 4) {
+            this.pomodoroCounter += 1
+            this.running = false
+            clearInterval(this.timer)
+            this.setCounter(this.next)
+
+            if (this.current === this.pomodoro) {
+              this.current = this.shortBreak
+              this.next = this.pomodoro
+            } else {
+              this.current = this.pomodoro
+              this.next = this.shortBreak
+            }
+          } else {
+            this.pomodoroCounter = 0
+            this.running = false
+            clearInterval(this.timer)
+            this.setCounter(this.longBreak)
+            this.current = this.longBreak
+            this.next = this.pomodoro
+          }
         }
       }, 1000)
     },
@@ -71,11 +96,13 @@ export default {
     reset () {
       clearInterval(this.timer)
       this.running = false
-      this.setCounter(this.pomoTimer)
+      this.setCounter(this.current)
     }
   },
   mounted () {
-    this.setCounter(this.pomoTimer)
+    this.current = this.pomodoro
+    this.next = this.shortBreak
+    this.setCounter(this.current)
   }
 }
 </script>
