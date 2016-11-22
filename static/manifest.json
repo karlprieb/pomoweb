@@ -1,20 +1,52 @@
 {
-	"name": "PomoWeb",
+	"name": "PomoWeb - Pomodoro Timer",
   "short_name": "PomoWeb",
-	"icons": [
-		{
-			"src": "\/static\/android-chrome-192x192.png",
-			"sizes": "192x192",
-			"type": "image\/png"
-		},
-		{
-			"src": "\/static\/android-chrome-512x512.png",
-			"sizes": "512x512",
-			"type": "image\/png"
-		}
-	],
-	"theme_color": "#f1ffe2",
+  "theme_color": "#f1f1f1",
+  "background_color": "#f1ffe2",
   "start_url": "/",
 	"display": "standalone",
-	"orientation": "portrait"
+	"orientation": "portrait",
+	"icons": [
+    {
+			"src": "static/android-chrome-72x72.png",
+			"sizes": "72x72",
+			"type": "image/png"
+		},
+    {
+			"src": "static/android-chrome-96x96.png",
+			"sizes": "96x96",
+			"type": "image/png"
+		},
+    {
+			"src": "static/android-chrome-128x128.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		},
+    {
+			"src": "static/android-chrome-144x144.png",
+			"sizes": "144x144",
+			"type": "image/png"
+		},
+    {
+			"src": "static/android-chrome-152x152.png",
+			"sizes": "152x152",
+			"type": "image/png"
+		},
+		{
+			"src": "static/android-chrome-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+    {
+			"src": "static/android-chrome-384x384.png",
+			"sizes": "384x384",
+			"type": "image/png"
+		},
+		{
+			"src": "static/android-chrome-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+  "splash_pages": null
 }
